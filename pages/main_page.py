@@ -1,8 +1,24 @@
+from allure import step
+
 from pages.base_page import BasePage
+import urls
 from locators.main_page_locators import MainPageLocators
-from locators.order_page_locators import OrderPageLocators
 
 
 class MainPage(BasePage):
 
-  pass
+  def __init__(self, driver):
+    super().__init__(driver)
+    self.url = urls.Urls.MAIN_PAGE_URL
+    self.locators = MainPageLocators()
+
+  def click_on_question(self, question):
+    with step(f'Click on question {question}'):
+      self.scroll_to_element(question)
+      self.click_on_element(question)
+
+  def get_answer_text(self, answer):
+    with step(f'Get text answer {answer}'):
+      self.wait_for_element_visible(answer)
+      text_answer = self.get_text_element(answer)
+      return text_answer
