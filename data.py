@@ -1,9 +1,9 @@
 from locators.main_page_locators import MainPageLocators
 
 
-class Data:
+class DataAccordion:
 
-    ACCORDION_DATA = [
+    DATA_ACCORDION = [
         (MainPageLocators.QUESTION_1, MainPageLocators.ANSWER_1, 'Сутки — 400 рублей. Оплата курьеру — наличными или картой.'),
         (MainPageLocators.QUESTION_2, MainPageLocators.ANSWER_2, 'Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.'),
         (MainPageLocators.QUESTION_3, MainPageLocators.ANSWER_3, 'Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.'),

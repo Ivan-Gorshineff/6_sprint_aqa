@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 class OrderPageLocators:
 
-    #первая страница формы
+    # первая страница формы
     FORM_ORDER_PERSON = (By.XPATH, './/div[text()="Для кого самокат"]')
     FIRST_NAME_FIELD = (By.XPATH, ".//input[@placeholder='* Имя']")
     LAST_NAME_FIELD = (By.XPATH, ".//input[@placeholder='* Фамилия']")

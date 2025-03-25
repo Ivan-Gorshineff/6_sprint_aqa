@@ -13,12 +13,12 @@ class MainPage(BasePage):
     self.locators = MainPageLocators()
 
   def click_on_question(self, question):
-    with step(f'Click on question {question}'):
+    with step(f'Клик на вопрос {question}'):
       self.scroll_to_element(question)
       self.click_on_element(question)
 
   def get_answer_text(self, answer):
-    with step(f'Get text answer {answer}'):
+    with step(f'Текст ответа {answer}'):
       self.wait_for_element_visible(answer)
       text_answer = self.get_text_element(answer)
       return text_answer

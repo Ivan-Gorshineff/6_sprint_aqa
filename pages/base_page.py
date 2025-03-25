@@ -7,24 +7,24 @@ from selenium.webdriver.remote.webdriver import WebDriver
 
 class BasePage:
 
-    def __init__(self, driver: WebDriver):
+    def __init__(self, driver):
         self.driver = driver
         self.url = None
 
-    def open(self,url):
-        with step(f'Go to {url}'):
-            self.driver.get(url)
+    def open(self):
+        with step(f'Открытие страницы'):
+            self.driver.get(self.url)
 
     def wait_for_element_visible(self, locator):
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
+        WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(locator))
 
     def enter_text(self, locator, text):
-        with step(f'Enter text {text} into field with locator {locator}'):
+        with step(f'Ввод текста {text} в поле {locator}'):
             self.wait_for_element_visible(locator)
             self.driver.find_element(*locator).send_keys(text)
 
     def click_on_element(self, locator):
-        with step(f'Click to {locator}'):
+        with step(f'Клик по {locator}'):
             WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(locator))
             self.driver.find_element(*locator).click()
 
@@ -32,7 +32,7 @@ class BasePage:
         return self.driver.find_element(*locator).text
 
     def scroll_to_element(self, locator):
-        with step(f'Scroll to {locator}'):
+        with step(f'Скролл до {locator}'):
             element = self.driver.find_element(*locator)
             self.driver.execute_script('arguments[0].scrollIntoView();', element)
 

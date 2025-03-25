@@ -26,7 +26,7 @@ class OrderPage(BasePage):
         WebDriverWait(self.driver, 10).until_not(EC.presence_of_element_located(locator))
 
     def enter_text_form_order_person(self, user_data):
-        with step(f'Fill first form'):
+        with step(f'Заполнение первой формы'):
             self.wait_form_order_person()
             self.enter_text(self.locators_order_page.FIRST_NAME_FIELD, user_data['first_name'])
             self.enter_text(self.locators_order_page.LAST_NAME_FIELD, user_data['last_name'])
@@ -36,11 +36,11 @@ class OrderPage(BasePage):
             self.enter_text(self.locators_order_page.NUMBER_PHONE_FIELD, user_data['phone_number'])
 
     def click_on_form_next_button(self):
-        with step(f'Click on next button'):
+        with step(f'Клик по кнопке "Далее"'):
             self.click_on_element(self.locators_order_page.FORM_NEXT_BUTTON)
 
     def enter_text_form_order_rent(self, user_data):
-        with step(f'Fill second form'):
+        with step(f'Заполнение второй формы'):
             self.wait_form_order_rent()
             self.enter_text(self.locators_order_page.DELIVERY_DATE_FIELD, user_data['delivery_date'])
             self.click_on_element(self.locators_order_page.FORM_ORDER_RENT)
@@ -51,16 +51,16 @@ class OrderPage(BasePage):
             self.enter_text(self.locators_order_page.COMMENT_FIELD, user_data['comment'])
 
     def click_form_order_button(self):
-        with step(f'Click on order button'):
+        with step(f'Клик на кнопку "Заказать"'):
             self.click_on_element(self.locators_order_page.FORM_ORDER_BUTTON)
 
     def order_confirm(self):
-        with step(f'Confirm order in modal window'):
+        with step(f'Подтверждение заказа в модальном окне'):
             self.wait_for_element_visible(self.locators_order_page.ORDER_CONFIRM)
             self.click_on_element(self.locators_order_page.BUTTON_CONFIRM)
 
     def order_status_success(self):
-        with step(f'Order status success'):
+        with step(f'Статус "Зкакз оформлен"'):
             self.wait_for_element_visible(self.locators_order_page.ORDER_COMPLETED)
             return self.get_text_element(self.locators_order_page.ORDER_COMPLETED)
 
