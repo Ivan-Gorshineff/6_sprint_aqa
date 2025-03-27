@@ -7,7 +7,7 @@ from selenium.webdriver.remote.webdriver import WebDriver
 
 class BasePage:
 
-    def __init__(self, driver):
+    def __init__(self, driver: WebDriver):
         self.driver = driver
         self.url = None
 
@@ -15,8 +15,12 @@ class BasePage:
         with step(f'Открытие страницы'):
             self.driver.get(self.url)
 
-    def wait_for_element_visible(self, locator):
-        WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(locator))
+    def get_current_url(self):
+        with step(f'Получение текущего Url'):
+             return self.driver.current_url
+
+    def wait_for_element_visible(self, locator, timeout=90):
+        WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
 
     def enter_text(self, locator, text):
         with step(f'Ввод текста {text} в поле {locator}'):
