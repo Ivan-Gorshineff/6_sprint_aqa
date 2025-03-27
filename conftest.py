@@ -1,11 +1,13 @@
 import pytest
 from selenium import webdriver
+from selenium.webdriver.firefox.service import Service
 
 
-@pytest.fixture()
+@pytest.fixture
 def driver():
-    driver = webdriver.Chrome()
-    driver.maximize_window()
-    yield driver
-    driver.quit()
+    service = Service(executable_path='C:\\WebDriver\\bin\\geckodriver.exe')
+    firefox_driver = webdriver.Firefox(service=service)
+    firefox_driver.maximize_window()
+    yield firefox_driver
+    firefox_driver.quit()
 

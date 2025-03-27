@@ -1,7 +1,6 @@
 import allure
 import  pytest
 
-
 from conftest import driver
 from data import DataAccordion
 from pages.main_page import MainPage
@@ -20,7 +19,7 @@ class TestAccordion:
         page.scroll_to_element(MainPageLocators.ACCORDION_LIST)
         page.click_on_question(question_locator)
         actual_text = page.get_answer_text(answer_locator)
-        with allure.step(f"Проверка, что текст ответа '{actual_text}' соответствует ожидаемому '{expected_text}'"):
+        with allure.step(f"Проверяем, что текст ответа '{actual_text}' соответствует ожидаемому '{expected_text}'"):
             assert actual_text == expected_text, f'Ожидалось {expected_text}, но получили {actual_text}'
 
 

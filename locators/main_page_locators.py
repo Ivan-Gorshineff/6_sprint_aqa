@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 class MainPageLocators:
 
     ACCORDION_LIST = (By.CLASS_NAME, 'accordion')
-    ORDER_BUTTON = (By.XPATH, './/div[contains(@class, "Button_Button__ra12g")]//button[text()="Заказать"]')
+    ORDER_BUTTON = (By.XPATH, './/div[contains(@class, "Home")]//button[text()="Заказать"]')
 
     QUESTION_1 = (By.ID, 'accordion__heading-0')
     QUESTION_2 = (By.ID, 'accordion__heading-1')

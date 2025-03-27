@@ -10,7 +10,6 @@ from locators.base_page_locators import BasePageLocators
 
 
 class TestLogoNavigation:
-
     @allure.title('Клик на логотип "Самокат"')
     @allure.description('При клике на логотип "Самокат" происходит переход на главную страницу')
     def test_click_on_scooter_logo(self, driver):
