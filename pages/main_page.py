@@ -1,7 +1,7 @@
 from allure import step
 
 from pages.base_page import BasePage
-import urls
+from urls import Urls
 from locators.main_page_locators import MainPageLocators
 
 
@@ -9,7 +9,7 @@ class MainPage(BasePage):
 
   def __init__(self, driver):
     super().__init__(driver)
-    self.url = urls.Urls.MAIN_PAGE_URL
+    self.url = Urls.MAIN_PAGE_URL
     self.locators = MainPageLocators()
 
   def click_on_question(self, question):

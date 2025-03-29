@@ -1,7 +1,5 @@
 from locators.base_page_locators import BasePageLocators
 from locators.main_page_locators import MainPageLocators
-from faker import Faker
-
 
 class UserData:
 
