@@ -5,14 +5,14 @@ from selenium.webdriver.support.ui import WebDriverWait
 from pages.base_page import BasePage
 from locators.base_page_locators import BasePageLocators
 from locators.order_page_locators import OrderPageLocators
-import urls
+from urls import Urls
 
 
 class OrderPage(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.url = urls.Urls.ORDER_PAGE_URL
+        self.url = Urls.ORDER_PAGE_URL
         self.locators_order_page = OrderPageLocators()
         self.locators_base_page = BasePageLocators()
 
